@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,500;0,700;0,900;1,500;1,700;1,900&display=swap');
+
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  font-family: var(--ff-redhat);
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+:root {
+  --ff-redhat: 'Red Hat Display', sans-serif;
+  --clr-pale-blue: hsl(225, 100%, 94%);
+  --clr-bright-blue: hsl(245, 75%, 52%);
+  --clr-very-pale-blue: hsl(225, 100%, 98%);
+  --clr-desaturated-blue: hsl(224, 23%, 55%);
+  --clr-dark-blue: hsl(223, 47%, 23%);
+  --opacity: 0.9;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.bg-color {
+  background-color: var(--clr-pale-blue);
+}
+
+main {
+  width: 380px;
+  max-width: 380px;
+  height: 555px;
+  background-color: var(--clr-very-pale-blue);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.image-container {
+  background-image: url(images/illustration-hero.svg);
+  background-size: cover;
+  width: 100%;
+  height: 170px;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  padding: 15px;
+}
+
+.content h1 {
+  margin-top: 15px;
+  font-size: 1.7rem;
+  font-weight: 900;
+}
+
+.content p {
+  text-align: center;
+  color: var(--clr-desaturated-blue);
+  font-size: 1rem;
+}
+
+.pay-info {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 48px;
+  width: 300px;
+  background-color: hsl(225, 100%, 94%, 0.3);
+  padding: 2.5em 1em;
+  border-radius: 10px;
+}
+
+.icon {
+  background-image: url(images/icon-music.svg);
+  width: 49px;
+  height: 48px;
+  margin-right: 16px;
+}
+
+.plan-info {
+  display: grid;
+  margin-right: auto;
+  font-weight: 900;
+}
+
+.plan-info span {
+  color: var(--clr-desaturated-blue);
+  font-weight: 300 !important;
+}
+
+.pay-info div:nth-child(3) {
+  align-self: center;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--clr-bright-blue);
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s ease;
+  text-decoration: underline;
+}
+
+.pay-info div:nth-child(3):hover {
+  opacity: 0.7;
+}
+
+.proceed-btn {
+  background-color: var(--clr-bright-blue);
+  color: white;
+  width: 300px;
+  max-width: 300px;
+  padding: 8px 0; 
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 700;
+  box-shadow: 0px 5px 10px 2px rgba(56, 41, 224, 0.2);
+}
+
+.proceed-btn:hover {
+ opacity: 0.7;
+}
+
+.cancel-btn {
+  border: none;
+  width: 300px;
+  padding: 8px 0;
+  background-color: var(--clr-very-pale-blue);
+  color: var(--clr-desaturated-blue);
+  font-size: 0.9rem;
+  font-weight: 700;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  color: black;
+}
+
+main, .image-container, .content, .pay-info,.proceed-btn,.cancel-btn, p, h1 {
+  animation: slideIn 1s ease-out;
+}
+
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+@media (max-width: 420px) {
+  main {
+    width: 300px;
+  }
+  .pay-info {
+    width: 260px;
+    padding: 40px 10px;
+  }
+
+  .plan-info {
+    font-size: 0.9rem;
+  }
+  .plan-info span {
+    font-size: 0.7rem;
+  }
+  .proceed-btn {
+    max-width: 250px;
+    border-radius: 10px;
+  }
+  .cancel-btn {
+    font-size: 0.8rem;
+  }
+}
